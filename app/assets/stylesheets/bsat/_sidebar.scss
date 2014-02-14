@@ -1,0 +1,87 @@
+#sidebar {
+  position: fixed;
+  z-index: 100;
+  top: $navbar-height;
+  bottom: 0;
+  width: $bsat-sidebar-width;
+  background: $bsat-sidebar-background-color;
+  box-shadow: -1px 0 1px darken($bsat-sidebar-background-color, 10%) inset;
+  box-sizing: border-box;
+  padding-top: 10px;
+  overflow-y: scroll;
+  @include single-transition(left, 0.3s, ease-in-out);
+
+  .nav {
+    margin-bottom: 15px;
+
+    > li > a {
+      color: $bsat-sidebar-text-color;
+      border: 1px solid transparent;
+      border-left: 0;
+      border-right: 0;
+      padding: 8px 15px;
+
+      .fa {
+        width: 15px;
+        margin-right: 10px;
+        color: $bsat-sidebar-icon-color;
+      }
+
+      .badge {
+        @include float-right();
+      }
+
+      .sublevel-indicator {
+        @include float-right();
+        text-align: right;
+        .fa {
+          margin-right: 0;
+        }
+      }
+    }
+
+    > li > a:hover,
+    > li > a:focus {
+      background-color: $bsat-sidebar-hover-background-color;
+      border-color: $bsat-sidebar-hover-border-color;
+      color: $bsat-sidebar-hover-text-color;
+
+      .fa {
+        color: $bsat-sidebar-hover-icon-color;
+      }
+    }
+
+    > li.divider {
+      margin-bottom: 15px;
+    }
+
+    &.nav-pills > li > a {
+      border-radius: 0;
+    }
+
+    &.nav-pills > li.active > a,
+    &.nav-pills > li.active > a:hover,
+    &.nav-pills > li.active > a:focus {
+      background-color: $bsat-sidebar-active-background-color;
+      color: $bsat-sidebar-active-text-color;
+      border-color: $bsat-sidebar-active-border-color;
+
+      .fa {
+        color: $bsat-sidebar-active-icon-color;
+      }
+    }
+  }
+}
+
+
+@media (max-width: $screen-sm-min) {
+  #sidebar {
+    left: -$bsat-sidebar-width;
+  }
+
+  body.sidebar-open {
+    #sidebar {
+      left: 0;
+    }
+  }
+}

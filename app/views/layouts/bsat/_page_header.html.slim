@@ -1,0 +1,9 @@
+header#header
+  = link_to '#', id: 'sidebar-toggle-button' do
+    = fa_icon 'bars'
+
+  - if content_for?(:bsat_page_title)
+    h1#page-title = yield(:bsat_page_title)
+
+  - if content_for?(:bsat_page_actions)
+    #page-actions = yield(:bsat_page_actions)
