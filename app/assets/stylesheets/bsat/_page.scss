@@ -49,6 +49,8 @@
     #content {
       padding-top: $navbar-height + $bsat-page-header-height + $bsat-page-header-margin-bottom;
       overflow: scroll;
+      padding-left: $bsat-page-content-padding-left;
+      padding-right: $bsat-page-content-padding-right;
     }
   }
 }
