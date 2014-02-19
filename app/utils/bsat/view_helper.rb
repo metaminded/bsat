@@ -2,6 +2,8 @@ module Bsat
 
   class ViewHelper
 
+    attr_reader :helper
+
     def initialize(helper)
       @helper  = helper
       @content = "".html_safe
@@ -9,6 +11,20 @@ module Bsat
 
     def render
       @content
+    end
+
+  protected
+
+    def active?(active)
+      if active.present?
+        if active.is_a?(Regexp)
+          request.path =~ active
+        else
+          true
+        end
+      else
+        false
+      end
     end
 
   private

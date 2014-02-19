@@ -29,19 +29,5 @@ module Bsat
       end
     end
 
-  private
-
-    def active?(active)
-      if active.present?
-        if active.is_a?(Regexp)
-          request.path =~ active
-        else
-          true
-        end
-      else
-        false
-      end
-    end
-
   end
 end
