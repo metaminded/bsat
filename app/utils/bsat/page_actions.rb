@@ -47,7 +47,7 @@ module Bsat
 
     def add_small_actions(label, path, icon, link_to_options)
       @small_actions << content_tag(:li) do
-        link_to(path, link_to_options.reject(:class)) do
+        link_to(path, link_to_options.except(:class)) do
           concat(fa_icon(icon)) if icon.present?
           concat(label)
         end
