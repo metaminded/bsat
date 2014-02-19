@@ -6,10 +6,10 @@ module Bsat
       content_for(:bsat_brand_path, path) if path.present?
     end
 
-    def bsat_content(content)
+    def bsat_content(content = nil, &block)
       content_for(:bsat_content) do
         content_tag(:div, class: 'container-fluid') do
-          content
+          block_given? ? capture(&block) : content
         end
       end
     end
