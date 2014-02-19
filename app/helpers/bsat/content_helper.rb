@@ -6,6 +6,14 @@ module Bsat
       content_for(:bsat_brand_path, path) if path.present?
     end
 
+    def bsat_content(content)
+      content_for(:bsat_content) do
+        content_tag(:div, class: 'container-fluid') do
+          content
+        end
+      end
+    end
+
     def bsat_sidebar_nav
       sidebar_nav = SidebarNav.new(self)
       yield(sidebar_nav) if block_given?
