@@ -1,3 +1,4 @@
-nav#sidebar
-  ul.nav.nav-stacked.nav-pills
-    = yield(:bsat_sidebar_nav_items)
+- if content_for?(:bsat_sidebar_nav_items)
+  nav#sidebar
+    ul.nav.nav-stacked.nav-pills
+      = yield(:bsat_sidebar_nav_items)

@@ -51,6 +51,13 @@
       overflow: scroll;
     }
   }
+
+  #content-area.no-sidebar {
+    padding-left: 0;
+    #header {
+      left: 0;
+    }
+  }
 }
 
 @media (max-width: $screen-sm-min) {
@@ -69,6 +76,16 @@
 
         #sidebar-toggle-button {
           display: inline-block;
+        }
+      }
+    }
+
+    #content-area.no-sidebar {
+      #header {
+        padding: $bsat-page-header-padding;
+
+        #sidebar-toggle-button {
+          display: none;
         }
       }
     }
