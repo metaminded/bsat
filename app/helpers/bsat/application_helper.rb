@@ -11,5 +11,9 @@ module Bsat
       content_for(:bsat_sidebar_nav_items, sidebar_nav.render)
     end
 
+    def bsat_page_title(title)
+      content_for(:bsat_page_title, title)
+    end
+
   end
 end
