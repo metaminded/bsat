@@ -7,7 +7,7 @@ module Bsat
 
     def bsat_sidebar_nav
       sidebar_nav = SidebarNav.new(self)
-      yield sidebar_nav if block_given?
+      yield(sidebar_nav) if block_given?
       content_for(:bsat_sidebar_nav_items, sidebar_nav.render)
     end
 

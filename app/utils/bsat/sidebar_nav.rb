@@ -1,5 +1,4 @@
 module Bsat
-
   class SidebarNav < ViewHelper
 
     def back(label, path, link_to_options: {})
@@ -45,5 +44,4 @@ module Bsat
     end
 
   end
-
 end
