@@ -15,5 +15,11 @@ module Bsat
       content_for(:bsat_page_title, title)
     end
 
+    def bsat_page_actions
+      page_actions = PageActions.new(self)
+      yield(page_actions) if block_given?
+      content_for(:bsat_page_actions, page_actions.render)
+    end
+
   end
 end
