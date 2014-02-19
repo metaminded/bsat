@@ -31,20 +31,26 @@ module Bsat
       end
     end
 
-    def add(label, path, link_to_options: {})
-      add_large_actions(label, path, link_to_options)
-      add_small_actions(label, path, link_to_options)
+    def add(label, path, icon: nil, link_to_options: {})
+      add_large_actions(label, path, icon, link_to_options)
+      add_small_actions(label, path, icon, link_to_options)
     end
 
   private
 
-    def add_large_actions(label, path, link_to_options)
-      @large_actions << link_to(label, path, link_to_options.reverse_merge(class: 'btn btn-default'))
+    def add_large_actions(label, path, icon, link_to_options)
+      @large_actions << link_to(path, link_to_options.reverse_merge(class: 'btn btn-default')) do
+        concat(fa_icon(icon)) if icon.present?
+        concat(label)
+      end
     end
 
-    def add_small_actions(label, path, link_to_options)
+    def add_small_actions(label, path, icon, link_to_options)
       @small_actions << content_tag(:li) do
-        link_to(label, path, link_to_options)
+        link_to(path, link_to_options) do
+          concat(fa_icon(icon)) if icon.present?
+          concat(label)
+        end
       end
     end
 

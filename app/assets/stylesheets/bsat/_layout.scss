@@ -8,3 +8,11 @@ body {
 #page {
   position: relative;
 }
+
+a.btn,
+button.btn,
+.dropdown-menu a {
+  .fa {
+    padding-right: 5px;
+  }
+}
