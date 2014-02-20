@@ -1,8 +1,8 @@
 module Bsat
   module ContentHelper
 
-    def bsat_brand(title, path: nil)
-      content_for(:bsat_brand, title)
+    def bsat_brand(title, path: nil, &block)
+      content_for(:bsat_brand, block_given? ? capture(&block) : title)
       content_for(:bsat_brand_path, path) if path.present?
     end
 
