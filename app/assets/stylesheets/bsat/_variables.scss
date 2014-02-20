@@ -1,6 +1,6 @@
 $bsat-sidebar-width: 200px !default;
 
-$bsat-sidebar-background-color: rgba($brand-primary, 0.09) !default;
+$bsat-sidebar-background-color: mix($gray-lighter, lighten($brand-primary, 44%), 30%) !default;
 $bsat-sidebar-text-color: $text-color !default;
 $bsat-sidebar-icon-color: $bsat-sidebar-text-color !default;
 

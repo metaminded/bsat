@@ -27,7 +27,7 @@
         display: none;
         text-align: center;
         line-height: $bsat-page-header-height;
-        background-color: #f2f7fa;
+        background-color: $bsat-sidebar-background-color;
         @include single-transition(left, 0.3s, ease-in-out);
       }
 
