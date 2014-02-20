@@ -48,7 +48,8 @@
 
     #content {
       padding-top: $navbar-height + $bsat-page-header-height + $bsat-page-header-margin-bottom;
-      overflow: scroll;
+      overflow-y: auto;
+      overflow-x: hidden;
     }
   }
 
