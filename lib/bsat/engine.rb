@@ -1,3 +1,4 @@
+require 'sass-rails'
 require 'bootstrap-sass'
 require 'font-awesome-rails'
 require 'compass-rails'
