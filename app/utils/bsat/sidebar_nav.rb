@@ -5,7 +5,11 @@ module Bsat
       @content << content_tag(:li) do
         link_to path, link_to_options do
           concat(fa_icon('chevron-left'))
-          concat(label)
+          if label.present?
+            concat(
+              content_tag(:span, label)
+            )
+          end
         end
       end
     end
@@ -18,7 +22,11 @@ module Bsat
       @content << content_tag(:li, class: (active?(active) ? 'active' : nil)) do
         link_to path, link_to_options do
           concat(fa_icon(icon)) if icon.present?
-          concat(label)
+          if label.present?
+            concat(
+              content_tag(:span, label)
+            )
+          end
           concat(
             content_tag(:span, class: 'sublevel-indicator') do
               fa_icon('chevron-right')

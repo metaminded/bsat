@@ -41,7 +41,11 @@ module Bsat
     def add_large_actions(label, path, icon, link_to_options)
       @large_actions << link_to(path, link_to_options.reverse_merge(class: 'btn btn-default')) do
         concat(fa_icon(icon)) if icon.present?
-        concat(label)
+        if label.present?
+          concat(
+            content_tag(:span, label)
+          )
+        end
       end
     end
 
@@ -49,7 +53,11 @@ module Bsat
       @small_actions << content_tag(:li) do
         link_to(path, link_to_options.except(:class)) do
           concat(fa_icon(icon)) if icon.present?
-          concat(label)
+          if label.present?
+            concat(
+              content_tag(:span, label)
+            )
+          end
         end
       end
     end
