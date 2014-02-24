@@ -20,8 +20,8 @@ module Bsat
       content_for(:bsat_sidebar_nav_items, sidebar_nav.render)
     end
 
-    def bsat_page_title(title)
-      content_for(:bsat_page_title, title)
+    def bsat_page_title(title = nil, &block)
+      content_for(:bsat_page_title, block_given? ? capture(&block) : title)
     end
 
     def bsat_page_actions
