@@ -6,6 +6,7 @@ module Bsat
         link_to path, link_to_options do
           concat(fa_icon('chevron-left'))
           if label.present?
+            concat(' ')
             concat(
               content_tag(:span, label)
             )
@@ -23,6 +24,7 @@ module Bsat
         link_to path, link_to_options do
           concat(fa_icon(icon)) if icon.present?
           if label.present?
+            concat(' ') if icon.present?
             concat(
               content_tag(:span, label)
             )

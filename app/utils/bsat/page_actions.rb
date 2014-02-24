@@ -16,6 +16,7 @@ module Bsat
               concat(
                 content_tag(:button, class: 'btn btn-default dropdown-toggle', type: 'button', data: {toggle: 'dropdown'}) do
                   concat(fa_icon('cog'))
+                  concat(' ')
                   concat(content_tag(:span, nil, class: 'caret'))
                 end
               )
@@ -42,6 +43,7 @@ module Bsat
       @large_actions << link_to(path, link_to_options.reverse_merge(class: 'btn btn-default')) do
         concat(fa_icon(icon)) if icon.present?
         if label.present?
+          concat(' ') if icon.present?
           concat(
             content_tag(:span, label)
           )
@@ -54,6 +56,7 @@ module Bsat
         link_to(path, link_to_options.except(:class)) do
           concat(fa_icon(icon)) if icon.present?
           if label.present?
+            concat(' ') if icon.present?
             concat(
               content_tag(:span, label)
             )
