@@ -7,8 +7,9 @@
 
     #header {
       background-color: $bsat-page-header-background-color;
-      padding: $bsat-page-header-padding;
+      padding: 0 $bsat-page-header-padding;
       height: $bsat-page-header-height;
+      line-height: $bsat-page-header-height;
       overflow: visible;
       border-bottom: $bsat-page-header-bottom-border;
       margin-bottom: $bsat-page-header-margin-bottom;
@@ -31,12 +32,25 @@
         @include single-transition(left, 0.3s, ease-in-out);
       }
 
-      h1#page-title {
+      #page-title-wrapper {
         @include float-left();
-        margin: 0;
-        padding: 0;
-        line-height: $line-height-base;
-        font-size: 160%;
+        height: $bsat-page-header-height;
+        display: table;
+        .inner {
+          display: table-cell;
+          vertical-align: middle;
+
+          h1#page-title {
+            font-size: 160%;
+            padding: 0;
+            margin: 0;
+            line-height: $line-height-base;
+          }
+
+          div#page-subtitle {
+            line-height: $line-height-base;
+          }
+        }
       }
 
       #page-actions {

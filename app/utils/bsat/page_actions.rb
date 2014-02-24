@@ -12,7 +12,7 @@ module Bsat
         concat(content_tag(:div, @large_actions.join(' ').html_safe, class: 'large'))
         concat(
           content_tag(:div, class: 'small') do
-            content_tag(:div, class: 'btn-group pull-right') do
+            content_tag(:div, class: 'btn-group') do
               concat(
                 content_tag(:button, class: 'btn btn-default dropdown-toggle', type: 'button', data: {toggle: 'dropdown'}) do
                   concat(fa_icon('cog'))
@@ -21,7 +21,7 @@ module Bsat
               )
 
               concat(
-                content_tag(:ul, class: 'dropdown-menu', role: 'menu') do
+                content_tag(:ul, class: 'dropdown-menu pull-right', role: 'menu') do
                   @small_actions.join.html_safe
                 end
               )

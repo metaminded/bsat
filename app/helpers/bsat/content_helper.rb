@@ -24,6 +24,10 @@ module Bsat
       content_for(:bsat_page_title, block_given? ? capture(&block) : title)
     end
 
+    def bsat_page_subtitle(subtitle = nil, &block)
+      content_for(:bsat_page_subtitle, block_given? ? capture(&block) : subtitle)
+    end
+
     def bsat_page_actions
       page_actions = PageActions.new(self)
       yield(page_actions) if block_given?
