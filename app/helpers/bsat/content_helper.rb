@@ -1,6 +1,9 @@
 module Bsat
   module ContentHelper
 
+    def bsat(content)
+      bsat_content(content)
+      render template: 'layouts/bsat'
     end
 
     def bsat_content(content = nil, &block)
