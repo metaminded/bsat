@@ -26,8 +26,17 @@ body.no-sidebar {
   #page #content-area {
     @include single-transition(none);
     left: 0;
-    #header {
+
+    #page-header {
       padding-left: $bsat-page-header-padding;
+    }
+  }
+}
+
+body.no-page-header {
+  #page #content-area {
+    #content {
+      top: 0;
     }
   }
 }
