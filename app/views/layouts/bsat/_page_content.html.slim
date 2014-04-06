@@ -1,2 +1,3 @@
 section#content
-  = content_for?(:bsat_content) ? yield(:bsat_content) : yield
+  div
+    = content_for?(:bsat_content) ? yield(:bsat_content) : yield

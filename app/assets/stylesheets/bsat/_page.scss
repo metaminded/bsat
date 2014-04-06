@@ -1,121 +1,33 @@
 #page {
-  #content-area {
-    position: relative;
-    box-sizing: border-box;
-    padding-left: $bsat-sidebar-width;
-    width: 100%;
+  position: absolute;
+  top: $navbar-height;
+  bottom: 0;
+  left: 0;
+  right: 0;
 
-    #header {
-      background-color: $bsat-page-header-background-color;
-      padding: 0 $bsat-page-header-padding;
-      height: $bsat-page-header-height;
-      line-height: $bsat-page-header-height;
-      overflow: visible;
-      border-bottom: $bsat-page-header-bottom-border;
-      margin-bottom: $bsat-page-header-margin-bottom;
-      position: fixed;
-      right: 0;
-      left: $bsat-sidebar-width;
-      top: $navbar-height;
-      z-index: 1000;
+  @import 'page/content_area';
+}
 
-      #sidebar-toggle-button {
-        position: absolute;
-        left: 0;
-        top: 0;
-        height: $bsat-page-header-height;
-        width: 35px;
-        display: none;
-        text-align: center;
-        line-height: $bsat-page-header-height;
-        background-color: $bsat-sidebar-background-color;
-        @include single-transition(left, 0.3s, ease-in-out);
-      }
-
-      #page-title-wrapper {
-        @include float-left();
-        height: $bsat-page-header-height;
-        display: table;
-        .inner {
-          display: table-cell;
-          vertical-align: middle;
-
-          h1#page-title {
-            font-size: 160%;
-            padding: 0;
-            margin: 0;
-            line-height: $line-height-base;
-          }
-
-          div#page-subtitle {
-            line-height: $line-height-base;
-            color: $bsat-page-header-subtitle-color;
-          }
-        }
-      }
-
-      #page-actions {
-        @include float-right();
-        .large { display: block; }
-        .small { display: none;  }
-      }
-    }
-
-    #content {
-      padding-top: $navbar-height + $bsat-page-header-height + $bsat-page-header-margin-bottom;
-      overflow-y: auto;
-      overflow-x: hidden;
-    }
-  }
-
-  #content-area.no-sidebar {
-    padding-left: 0;
-    #header {
-      left: 0;
-    }
+@mixin closed-sidebar {
+  #page #content-area {
+    left: 0;
   }
 }
 
+body.sidebar-close {
+  @include closed-sidebar;
+}
+
 @media (max-width: $screen-sm-min) {
-  #page {
-    #content-area {
-      padding-left: 0;
+  @include closed-sidebar;
+}
 
-      #header {
-        padding-left: 40px;
-        left: 0;
-
-        #page-actions {
-          .large { display: none;  }
-          .small { display: block; }
-        }
-
-        #sidebar-toggle-button {
-          display: inline-block;
-        }
-      }
-    }
-
-    #content-area.no-sidebar {
-      #header {
-        padding: $bsat-page-header-padding;
-
-        #sidebar-toggle-button {
-          display: none;
-        }
-      }
-    }
-  }
-
-  body.sidebar-open {
-    #page {
-      #content-area {
-        #header {
-          #sidebar-toggle-button {
-            left: $bsat-sidebar-width;
-          }
-        }
-      }
+body.no-sidebar {
+  #page #content-area {
+    @include single-transition(none);
+    left: 0;
+    #header {
+      padding-left: $bsat-page-header-padding;
     }
   }
 }
