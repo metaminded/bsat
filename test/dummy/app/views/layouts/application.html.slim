@@ -1,0 +1,23 @@
+doctype html
+html(lang="de")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
+
+    title BSAT Demo
+
+    = stylesheet_link_tag    "application", "data-turbolinks-track" => true, "media" => "all"
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tag
+
+  body
+    - bsat_brand title: 'BSAT DEMO', path: root_path
+
+    - bsat_sidebar_nav do |nav|
+      - nav.back 'Zurück', '#'
+      - nav.link 'Action 1', '#', icon: 'bolt',    active: /\A\//
+      - nav.link 'Action 2', '#', icon: 'desktop', active: /bar/, has_sublevel: true
+      - nav.divider
+      - nav.link "Action 3", '#', icon: 'globe',   active: /baz/, badge: 12
+
+    = bsat(yield)

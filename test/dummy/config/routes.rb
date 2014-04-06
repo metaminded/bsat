@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
 
-  mount Bsat::Engine => "/bsat"
+  root to: 'dashboard#index'
+
 end
