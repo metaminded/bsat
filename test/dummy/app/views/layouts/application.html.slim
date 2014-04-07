@@ -13,6 +13,14 @@ html(lang="de")
   body
     - bsat_brand title: 'BSAT DEMO', path: root_path
 
+    - bsat_navbar(:left) do |navbar|
+      - navbar.link 'Action', '#'
+      - navbar.link 'Action', '#'
+      - navbar.link 'Action', '#'
+
+    - bsat_navbar(:right) do |navbar|
+      - navbar.link 'Action', '#'
+
     - bsat_sidebar_nav do |nav|
       - nav.back 'Zurück', '#'
       - nav.link 'Action 1', '#', icon: 'bolt',    active: /\A\//
