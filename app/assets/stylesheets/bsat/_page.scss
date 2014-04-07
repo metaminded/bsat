@@ -24,7 +24,7 @@ body.sidebar-close {
 
 body.no-sidebar {
   #page #content-area {
-    @include single-transition(none);
+    @include single-transition(left, 0);
     left: 0;
 
     #page-header {
