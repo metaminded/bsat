@@ -1,7 +1,11 @@
+require 'rails'
 require 'sass-rails'
 require 'bootstrap-sass'
-require 'font-awesome-rails'
+require 'coffee-rails'
 require 'compass-rails'
+require 'jquery-rails'
+require 'font-awesome-rails'
+require 'slim'
 
 module Bsat
   class Engine < ::Rails::Engine

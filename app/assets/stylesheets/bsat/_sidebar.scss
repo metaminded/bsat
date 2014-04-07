@@ -1,88 +1,76 @@
-#sidebar {
-  position: fixed;
-  z-index: 1001;
-  top: $navbar-height;
-  bottom: 0;
-  width: $bsat-sidebar-width;
-  background: $bsat-sidebar-background-color;
-  box-shadow: -1px 0 1px darken($bsat-sidebar-background-color, 10%) inset;
-  box-sizing: border-box;
-  padding-top: 10px;
-  overflow-y: auto;
-  overflow-x: hidden;
-  @include single-transition(left, 0.3s, ease-in-out);
-
-  .nav {
-    margin-bottom: 15px;
-
-    > li > a {
-      color: $bsat-sidebar-text-color;
-      border: 1px solid transparent;
-      border-left: 0;
-      border-right: 0;
-      padding: 8px 15px;
-
-      .fa {
-        width: 15px;
-        margin-right: 10px;
-        color: $bsat-sidebar-icon-color;
-      }
-
-      .badge {
-        @include float-right();
-      }
-
-      .sublevel-indicator {
-        @include float-right();
-        text-align: right;
-        .fa {
-          margin-right: 0;
-        }
-      }
-    }
-
-    > li > a:hover,
-    > li > a:focus {
-      background-color: $bsat-sidebar-hover-background-color;
-      border-color: $bsat-sidebar-hover-border-color;
-      color: $bsat-sidebar-hover-text-color;
-
-      .fa {
-        color: $bsat-sidebar-hover-icon-color;
-      }
-    }
-
-    > li.divider {
-      margin-bottom: 15px;
-    }
-
-    &.nav-pills > li > a {
-      border-radius: 0;
-    }
-
-    &.nav-pills > li.active > a,
-    &.nav-pills > li.active > a:hover,
-    &.nav-pills > li.active > a:focus {
-      background-color: $bsat-sidebar-active-background-color;
-      color: $bsat-sidebar-active-text-color;
-      border-color: $bsat-sidebar-active-border-color;
-
-      .fa {
-        color: $bsat-sidebar-active-icon-color;
-      }
-    }
+@mixin closed-sidebar {
+  #sidebar-toggle-button {
+    left: 0;
   }
-}
 
-
-@media (max-width: $screen-sm-min) {
   #sidebar {
     left: -$bsat-sidebar-width;
   }
+}
 
-  body.sidebar-open {
-    #sidebar {
-      left: 0;
+@mixin opened-sidebar {
+  #sidebar-toggle-button {
+    left: $bsat-sidebar-width;
+  }
+
+  #sidebar {
+    left: 0;
+  }
+}
+
+#sidebar-wrapper {
+  $z-index: 1001;
+
+  @include opened-sidebar;
+
+  #sidebar-toggle-button {
+    @include single-transition(left, 0.3s, ease-in-out);
+    position: absolute;
+    z-index: $z-index;
+    top: 0;
+    left: $bsat-sidebar-width;
+    width: $bast-sidebar-toggle-button-width;
+    height: $bsat-page-header-height;
+    line-height: $bsat-page-header-height;
+    text-align: center;
+    background-color: $bsat-sidebar-background-color;
+    &:before {
+      @extend .fa;
+      @extend .fa-bars;
     }
+  }
+
+  #sidebar {
+    @include single-transition(left, 0.3s, ease-in-out);
+    position: absolute;
+    z-index: $z-index;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: $bsat-sidebar-width;
+    background: $bsat-sidebar-background-color;
+    box-shadow: -1px 0 1px darken($bsat-sidebar-background-color, 10%) inset;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    @import 'sidebar/nav';
+  }
+}
+
+body.sidebar-close {
+  #sidebar-wrapper {
+    @include closed-sidebar;
+  }
+}
+
+body.sidebar-open {
+  #sidebar-wrapper {
+    @include opened-sidebar;
+  }
+}
+
+@media (max-width: $screen-sm-min) {
+  #sidebar-wrapper {
+    @include closed-sidebar;
   }
 }

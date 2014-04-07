@@ -3,6 +3,7 @@ $bsat-sidebar-width: 200px !default;
 $bsat-sidebar-background-color: mix($gray-lighter, lighten($brand-primary, 44%), 30%) !default;
 $bsat-sidebar-text-color: $text-color !default;
 $bsat-sidebar-icon-color: $bsat-sidebar-text-color !default;
+$bast-sidebar-toggle-button-width: 35px !default;
 
 $bsat-sidebar-active-background-color: $brand-primary !default;
 $bsat-sidebar-active-text-color: #fff !default;
@@ -15,8 +16,7 @@ $bsat-sidebar-hover-icon-color: $bsat-sidebar-icon-color !default;
 $bsat-sidebar-hover-border-color: darken($bsat-sidebar-hover-background-color, 5%) !default;
 
 $bsat-page-header-height: 65px !default;
-$bsat-page-header-margin-bottom: 20px !default;
-$bsat-page-header-background-color: rgba(#fff, .95) !default;
+$bsat-page-header-background-color: #fff !default;
 $bsat-page-header-bottom-border: 1px solid $gray-lighter !default;
 $bsat-page-header-padding: 20px !default;
 $bsat-page-header-subtitle-color: $gray-light;

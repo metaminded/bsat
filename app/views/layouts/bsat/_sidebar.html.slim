@@ -1,4 +1,7 @@
 - if content_for?(:bsat_sidebar_nav_items)
-  nav#sidebar
-    ul.nav.nav-stacked.nav-pills
-      = yield(:bsat_sidebar_nav_items)
+  #sidebar-wrapper
+    = link_to '', '#', id: 'sidebar-toggle-button'
+
+    nav#sidebar
+      ul.nav.nav-stacked.nav-pills
+        = yield(:bsat_sidebar_nav_items)

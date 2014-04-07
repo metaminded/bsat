@@ -1,3 +1,8 @@
-body > .navbar {
+#main-navbar {
   margin-bottom: 0;
+  border: none;
+}
+
+body {
+  padding-top: $navbar-height;
 }

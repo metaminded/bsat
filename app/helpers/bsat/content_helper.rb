@@ -1,9 +1,9 @@
 module Bsat
   module ContentHelper
 
-    def bsat_brand(path: nil, &block)
-      content_for(:bsat_brand, block_given? ? capture(&block) : title)
-      content_for(:bsat_brand_path, path) if path.present?
+    def bsat(content)
+      bsat_content(content)
+      render template: 'layouts/bsat'
     end
 
     def bsat_content(content = nil, &block)
@@ -12,6 +12,11 @@ module Bsat
           block_given? ? capture(&block) : content
         end
       end
+    end
+
+    def bsat_brand(path: nil, title: nil, &block)
+      content_for(:bsat_brand, block_given? ? capture(&block) : title)
+      content_for(:bsat_brand_path, path) if path.present?
     end
 
     def bsat_sidebar_nav
