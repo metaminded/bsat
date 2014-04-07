@@ -14,8 +14,8 @@ html(lang="de")
     - bsat_brand title: 'BSAT DEMO', path: root_path
 
     - bsat_navbar(:left) do |navbar|
-      - navbar.link 'Action', '#'
-      - navbar.link 'Action', '#'
+      - navbar.link 'Action', '#', icon: 'home'
+        - navbar.link 'Action', '#', badge: 2
       - navbar.link 'Action', '#'
 
     - bsat_navbar(:right) do |navbar|
