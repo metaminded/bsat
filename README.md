@@ -1,6 +1,9 @@
 BSAT
 ----
 
+[![Code Climate](https://codeclimate.com/github/renspr/bsat.png)](https://codeclimate.com/github/renspr/bsat)
+[![Dependency Status](https://gemnasium.com/renspr/bsat.svg)](https://gemnasium.com/renspr/bsat)
+
 BSAT is an admin template build with Bootstrap 3 packaged as a Rails engine. With BSAT it's
 easy to build a nice and uniform admin backend for your Rails project that works on
 desktops, tablets and smartphones. Based on Bootstrap 3 BSAT adds some ready to use UI elements
@@ -35,10 +38,10 @@ BSAT will also include the following Javascript librarys.
 Installation
 ------------
 
-Add it to your Gemfile:
+Add it to your Gemfile (__Note__: we have no official release yet, so you need to use the github source at the moment):
 
 ```ruby
-gem 'bsat'
+gem 'bsat', '> 0.0.1', github: 'renspr/bsat', branch: 'master'
 ```
 
 Run the following command to install it:
