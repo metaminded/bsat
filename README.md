@@ -142,7 +142,10 @@ is called `bsat_navbar`. It accepts one argument to set the side `:left` or `:ri
 - bsat_navbar(:left) do |navbar|
   - navbar.link 'Action', '#', icon: 'home'
   - navbar.link 'Action', '#', badge: 2
-  - navbar.link 'Action', '#'
+  - navbar.dropdown 'Dropdown' do |dropdown|
+    - dropdown.link 'Action', '#'
+    - dropdown.link 'Action', '#'
+    - dropdown.link 'Action', '#'
 
 - bsat_navbar(:right) do |navbar|
   - navbar.link 'Action', '#'
