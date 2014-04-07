@@ -42,3 +42,12 @@
     .small { display: none;  }
   }
 }
+
+@media (max-width: $screen-sm-min) {
+  #page-header {
+    #page-actions {
+      .large { display: none;  }
+      .small { display: block; }
+    }
+  }
+}
