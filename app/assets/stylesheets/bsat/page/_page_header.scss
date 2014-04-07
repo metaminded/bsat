@@ -1,6 +1,7 @@
 #page-header {
   background-color: $bsat-page-header-background-color;
-  padding: $bsat-page-header-padding + 35px;
+  padding-left: $bsat-page-header-padding + 35px;
+  padding-right: $bsat-page-header-padding;
   padding-top: 0;
   padding-bottom: 0;
   height: $bsat-page-header-height;
