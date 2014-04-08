@@ -21,12 +21,11 @@ window.bsat.utils.readyOrPageChange ->
     $('body').addClass('no-sidebar')
 
   #
-  # Use IScroll for scrolling the sidebar and content area
+  # Use IScroll for scrolling the sidebar
   #
-  for selector in ['#sidebar', '#content']
+  for selector in ['#sidebar']
     new IScroll(selector, {
       scrollbars: true,
       fadeScrollbars: true,
       mouseWheel: true
     }) if $(selector)[0]
-

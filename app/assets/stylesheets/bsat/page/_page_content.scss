@@ -1,5 +1,6 @@
 #content {
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   position: absolute;
   top: $bsat-page-header-height;
   left: 0;
