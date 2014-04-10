@@ -23,9 +23,10 @@ window.bsat.utils.readyOrPageChange ->
   #
   # Use IScroll for scrolling the sidebar
   #
-  for selector in ['#sidebar']
-    new IScroll(selector, {
-      scrollbars: true,
-      fadeScrollbars: true,
-      mouseWheel: true
-    }) if $(selector)[0]
+  selector = '#sidebar'
+  new IScroll(selector, {
+    scrollbars: true,
+    fadeScrollbars: true,
+    mouseWheel: true,
+    click: true
+  }) if $(selector)[0]
