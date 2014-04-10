@@ -7,7 +7,7 @@ window.bsat.utils.readyOrPageChange ->
   #
   $('#sidebar-toggle-button').click (e) ->
     e.preventDefault()
-    if $(window).width() < 768
+    if $(window).width() <= 768
       $('body').toggleClass('sidebar-open')
       $('body').removeClass('sidebar-close')
     else
