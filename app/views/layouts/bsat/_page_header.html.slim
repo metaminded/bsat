@@ -8,4 +8,13 @@
           div#page-subtitle = yield(:bsat_page_subtitle)
 
     - if content_for?(:bsat_page_actions)
-      #page-actions = yield(:bsat_page_actions)
+      #page-actions
+        div
+          .large = yield(:bsat_page_actions)
+          .small
+            .btn-group
+              button.btn.btn-default.dropdown-toggle type="button" data-toggle="dropdown"
+                i.fa.fa-cog
+                span.caret
+              ul.dropdown-menu.pull-right role="menu"
+                = yield(:bsat_small_page_actions)
