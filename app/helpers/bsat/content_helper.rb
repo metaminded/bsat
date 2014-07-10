@@ -19,10 +19,10 @@ module Bsat
       content_for(:bsat_brand_path, path) if path.present?
     end
 
-    def bsat_sidebar_nav
+    def bsat_sidebar_nav(side: :left)
       sidebar_nav = SidebarNav.new(self)
       yield(sidebar_nav) if block_given?
-      content_for(:bsat_sidebar_nav_items, sidebar_nav.render)
+      content_for("bsat_#{side.to_s}_sidebar_nav_items".to_sym, sidebar_nav.render)
     end
 
     def bsat_page_title(title = nil, &block)

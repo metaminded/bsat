@@ -1,5 +1,5 @@
-@mixin closed-sidebar {
-  #sidebar-toggle-button {
+@mixin closed-left-sidebar {
+  #left-sidebar-toggle-button {
     left: 0;
   }
 
@@ -8,8 +8,8 @@
   }
 }
 
-@mixin opened-sidebar {
-  #sidebar-toggle-button {
+@mixin opened-left-sidebar {
+  #left-sidebar-toggle-button {
     left: $bsat-sidebar-width;
   }
 
@@ -18,59 +18,119 @@
   }
 }
 
-#sidebar-wrapper {
+@mixin closed-right-sidebar {
+  #right-sidebar-toggle-button {
+    right: 0;
+  }
+
+  #sidebar {
+    right: -$bsat-sidebar-width;
+  }
+}
+
+@mixin opened-right-sidebar {
+  #right-sidebar-toggle-button {
+    right: $bsat-sidebar-width;
+  }
+
+  #sidebar {
+    right: 0;
+  }
+}
+
+#left-sidebar-wrapper {
   $z-index: 1001;
 
-  @include opened-sidebar;
+  @include opened-left-sidebar;
 
-  #sidebar-toggle-button {
+  #left-sidebar-toggle-button {
     @include single-transition(left, 0.3s, ease-in-out);
-    position: absolute;
     z-index: $z-index;
-    top: 0;
-    left: $bsat-sidebar-width;
-    width: $bast-sidebar-toggle-button-width;
-    height: $bsat-page-header-height;
-    line-height: $bsat-page-header-height;
-    text-align: center;
-    background-color: $bsat-sidebar-background-color;
-    &:before {
-      @extend .fa;
-      @extend .fa-bars;
+  }
+
+  #sidebar {
+    @include single-transition(left, 0.3s, ease-in-out);
+    left: 0;
+    z-index: $z-index;
+  }
+}
+
+#right-sidebar-wrapper {
+  $z-index: 1001;
+
+  @include opened-right-sidebar;
+
+  #right-sidebar-toggle-button {
+    @include single-transition(right, 0.3s, ease-in-out);
+    z-index: $z-index;
+  }
+
+  #sidebar {
+    @include single-transition(right, 0.3s, ease-in-out);
+    right: 0;
+    z-index: $z-index;
+  }
+}
+
+.sidebar-toggle-button {
+  position: absolute;
+  top: 0;
+  width: $bast-sidebar-toggle-button-width;
+  height: $bsat-page-header-height;
+  line-height: $bsat-page-header-height;
+  text-align: center;
+  background-color: $bsat-sidebar-background-color;
+  &:before {
+    @extend .fa;
+    @extend .fa-bars;
+  }
+}
+
+#sidebar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: $bsat-sidebar-width;
+  background: $bsat-sidebar-background-color;
+  box-shadow: 1px 0 1px darken($bsat-sidebar-background-color, 10%) inset;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  @import 'sidebar/nav';
+}
+
+body {
+  &.left-sidebar-close {
+    #left-sidebar-wrapper {
+      @include closed-left-sidebar;
     }
   }
 
-  #sidebar {
-    @include single-transition(left, 0.3s, ease-in-out);
-    position: absolute;
-    z-index: $z-index;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: $bsat-sidebar-width;
-    background: $bsat-sidebar-background-color;
-    box-shadow: -1px 0 1px darken($bsat-sidebar-background-color, 10%) inset;
-    box-sizing: border-box;
-    overflow: hidden;
-
-    @import 'sidebar/nav';
+  &.left-sidebar-open {
+    #left-sidebar-wrapper {
+      @include opened-left-sidebar;
+    }
   }
-}
 
-body.sidebar-close {
-  #sidebar-wrapper {
-    @include closed-sidebar;
+  &.right-sidebar-close {
+    #right-sidebar-wrapper {
+      @include closed-right-sidebar;
+    }
   }
-}
 
-body.sidebar-open {
-  #sidebar-wrapper {
-    @include opened-sidebar;
+  &.right-sidebar-open {
+    #right-sidebar-wrapper {
+      @include opened-right-sidebar;
+    }
   }
 }
 
 @media (max-width: $screen-sm-min) {
-  #sidebar-wrapper {
-    @include closed-sidebar;
+  #left-sidebar-wrapper {
+    @include closed-left-sidebar;
+  }
+
+  #right-sidebar-wrapper {
+    @include closed-right-sidebar;
   }
 }

@@ -38,6 +38,5 @@ module Bsat
         end
       end
     end
-
   end
 end
