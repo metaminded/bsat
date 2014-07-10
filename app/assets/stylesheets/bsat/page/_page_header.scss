@@ -38,8 +38,13 @@
 
   #page-actions {
     @include float-right();
-    .large { display: block; }
-    .small { display: none;  }
+    .large {
+      display: block;
+      .btn {
+        margin: 0 4px;
+      }
+    }
+    .small { display: none; }
   }
 }
 

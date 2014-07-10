@@ -36,7 +36,8 @@ module Bsat
     def bsat_page_actions
       page_actions = PageActions.new(self)
       yield(page_actions) if block_given?
-      content_for(:bsat_page_actions, page_actions.render)
+      content_for(:bsat_page_actions, page_actions.render(:large))
+      content_for(:bsat_small_page_actions, page_actions.render(:small))
     end
 
     def bsat_navbar(location)

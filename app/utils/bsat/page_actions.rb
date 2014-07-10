@@ -7,28 +7,11 @@ module Bsat
       @small_actions = []
     end
 
-    def render
-      @content << content_tag(:div) do
-        concat(content_tag(:div, @large_actions.join(' ').html_safe, class: 'large'))
-        concat(
-          content_tag(:div, class: 'small') do
-            content_tag(:div, class: 'btn-group') do
-              concat(
-                content_tag(:button, class: 'btn btn-default dropdown-toggle', type: 'button', data: {toggle: 'dropdown'}) do
-                  concat(fa_icon('cog'))
-                  concat(' ')
-                  concat(content_tag(:span, nil, class: 'caret'))
-                end
-              )
-
-              concat(
-                content_tag(:ul, class: 'dropdown-menu pull-right', role: 'menu') do
-                  @small_actions.join.html_safe
-                end
-              )
-            end
-          end
-        )
+    def render(type)
+      if (type == :large)
+        @large_actions.join('').html_safe
+      elsif (type == :small)
+        @small_actions.join.html_safe
       end
     end
 
