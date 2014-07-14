@@ -20,7 +20,7 @@ module Bsat
     end
 
     def bsat_sidebar_nav(side: :left)
-      sidebar_nav = SidebarNav.new(self)
+      sidebar_nav = SidebarNav.new(self, options: { side: side })
       yield(sidebar_nav) if block_given?
       content_for("bsat_#{side.to_s}_sidebar_nav_items".to_sym, sidebar_nav.render)
     end
@@ -50,6 +50,5 @@ module Bsat
         when :right then content_for(:bsat_navbar_right_items, navbar_items.render)
       end
     end
-
   end
 end

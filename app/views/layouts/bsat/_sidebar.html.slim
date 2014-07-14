@@ -3,13 +3,11 @@
     = link_to '', '#', id: 'left-sidebar-toggle-button', class: 'sidebar-toggle-button'
 
     nav#sidebar
-      ul.nav.nav-stacked.nav-pills
-        = yield(:bsat_left_sidebar_nav_items)
+      = yield(:bsat_left_sidebar_nav_items)
 
 - if content_for?(:bsat_right_sidebar_nav_items)
   #right-sidebar-wrapper
     = link_to '', '#', id: 'right-sidebar-toggle-button', class: 'sidebar-toggle-button'
 
     nav#sidebar
-      ul.nav.nav-stacked.nav-pills
-        = yield(:bsat_right_sidebar_nav_items)
+      = yield(:bsat_right_sidebar_nav_items)

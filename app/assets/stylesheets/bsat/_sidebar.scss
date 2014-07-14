@@ -1,47 +1,63 @@
 @mixin closed-left-sidebar {
-  #left-sidebar-toggle-button {
+  #content-area {
     left: 0;
   }
 
-  #sidebar {
-    left: -$bsat-sidebar-width;
+  #left-sidebar-wrapper {
+    #left-sidebar-toggle-button {
+      left: 0 !important;
+    }
+
+    #sidebar {
+      left: -$bsat-sidebar-width !important;
+    }
   }
 }
 
 @mixin opened-left-sidebar {
-  #left-sidebar-toggle-button {
+  #content-area {
     left: $bsat-sidebar-width;
   }
 
-  #sidebar {
-    left: 0;
+  #left-sidebar-wrapper {
+    #left-sidebar-toggle-button {
+      left: $bsat-sidebar-width;
+    }
+
+    #sidebar {
+      left: 0;
+    }
   }
 }
 
 @mixin closed-right-sidebar {
-  #right-sidebar-toggle-button {
-    right: 0;
-  }
+  #right-sidebar-wrapper {
+    #right-sidebar-toggle-button {
+      right: 0;
+    }
 
-  #sidebar {
-    right: -$bsat-sidebar-width;
+    #sidebar {
+      right: -$bsat-sidebar-width;
+    }
   }
 }
 
 @mixin opened-right-sidebar {
-  #right-sidebar-toggle-button {
-    right: $bsat-sidebar-width;
-  }
+  #right-sidebar-wrapper {
+    #right-sidebar-toggle-button {
+      right: $bsat-sidebar-width;
+    }
 
-  #sidebar {
-    right: 0;
+    #sidebar {
+      right: 0;
+    }
   }
 }
 
+@include opened-left-sidebar;
+
 #left-sidebar-wrapper {
   $z-index: 1001;
-
-  @include opened-left-sidebar;
 
   #left-sidebar-toggle-button {
     @include single-transition(left, 0.3s, ease-in-out);
@@ -50,15 +66,16 @@
 
   #sidebar {
     @include single-transition(left, 0.3s, ease-in-out);
+    box-shadow: -1px 0 1px darken($bsat-sidebar-background-color, 10%) inset;
     left: 0;
     z-index: $z-index;
   }
 }
 
+@include opened-right-sidebar;
+
 #right-sidebar-wrapper {
   $z-index: 1001;
-
-  @include opened-right-sidebar;
 
   #right-sidebar-toggle-button {
     @include single-transition(right, 0.3s, ease-in-out);
@@ -67,6 +84,7 @@
 
   #sidebar {
     @include single-transition(right, 0.3s, ease-in-out);
+    box-shadow: 1px 0 1px darken($bsat-sidebar-background-color, 10%) inset;
     right: 0;
     z-index: $z-index;
   }
@@ -92,7 +110,6 @@
   bottom: 0;
   width: $bsat-sidebar-width;
   background: $bsat-sidebar-background-color;
-  box-shadow: 1px 0 1px darken($bsat-sidebar-background-color, 10%) inset;
   box-sizing: border-box;
   overflow: hidden;
 
@@ -100,37 +117,26 @@
 }
 
 body {
+  overflow: hidden;
+
   &.left-sidebar-close {
-    #left-sidebar-wrapper {
-      @include closed-left-sidebar;
-    }
+    @include closed-left-sidebar;
   }
 
   &.left-sidebar-open {
-    #left-sidebar-wrapper {
-      @include opened-left-sidebar;
-    }
+    @include opened-left-sidebar;
   }
 
   &.right-sidebar-close {
-    #right-sidebar-wrapper {
-      @include closed-right-sidebar;
-    }
+    @include closed-right-sidebar;
   }
 
   &.right-sidebar-open {
-    #right-sidebar-wrapper {
-      @include opened-right-sidebar;
-    }
+    @include opened-right-sidebar;
   }
 }
 
 @media (max-width: $screen-sm-min) {
-  #left-sidebar-wrapper {
-    @include closed-left-sidebar;
-  }
-
-  #right-sidebar-wrapper {
-    @include closed-right-sidebar;
-  }
+  @include closed-left-sidebar;
+  @include closed-right-sidebar;
 }
