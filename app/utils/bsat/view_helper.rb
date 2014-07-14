@@ -4,8 +4,9 @@ module Bsat
 
     attr_reader :helper
 
-    def initialize(helper)
+    def initialize(helper, options: {})
       @helper  = helper
+      @options = options
       @content = "".html_safe
     end
 

@@ -40,3 +40,23 @@ window.bsat.utils.readyOrPageChange ->
     mouseWheel: true,
     click: true
   }) if $(selector)[0]
+
+  #
+  # Handle Subnavigation
+  #
+  $(document).on 'click', '#sidebar .subnav-toggle', (e) ->
+    path = $(e.currentTarget).attr 'href'
+    $(e.currentTarget).parents('nav#sidebar').find('ul.nav').addClass 'hidden'
+    $(e.currentTarget).parents('nav#sidebar').find(path).removeClass 'hidden'
+
+
+  $(document).on 'click', '#sidebar .subnav-back', (e) ->
+    path = $(e.currentTarget).parents('ul').first().attr 'id'
+    $(e.currentTarget).parents('nav#sidebar').find('ul.nav').addClass 'hidden'
+    $(e.currentTarget).parents('nav#sidebar').find("a[href=##{path}]").parents('ul.nav').removeClass 'hidden'
+
+
+  path = $('nav#sidebar').find('li.active a').parents('ul').attr('id')
+  if path
+    $('nav#sidebar').find('ul.nav').addClass 'hidden'
+    $('nav#sidebar').find("##{path}").removeClass 'hidden'
