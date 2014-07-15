@@ -27,8 +27,10 @@ window.bsat.utils.readyOrPageChange ->
   #
   # Detect if there is no sidebar
   #
-  unless $('#sidebar')[0]
-    $('body').addClass('no-sidebar')
+  unless $('#left-sidebar-wrapper')[0]
+    $('body').addClass('no-left-sidebar')
+  unless $('#right-sidebar-wrapper')[0]
+    $('body').addClass('no-right-sidebar')
 
   #
   # Use IScroll for scrolling the sidebar
