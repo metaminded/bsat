@@ -60,5 +60,5 @@ window.bsat.utils.readyOrPageChange ->
 
   path = $('nav#sidebar').find('li.active a').parents('ul').attr('id')
   if path
-    $('nav#sidebar').find('ul.nav').addClass 'hidden'
+    $('nav#sidebar').has('.subnav-menu').find('ul.nav').addClass 'hidden'
     $('nav#sidebar').find("##{path}").removeClass 'hidden'
