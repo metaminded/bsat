@@ -24,8 +24,8 @@ module Bsat
       @content << content_tag(:li, nil, class: 'divider')
     end
 
-    def link(label, path, icon: nil, badge: nil, active: nil, has_sublevel: nil, link_to_options: {})
-      @content << content_tag(:li, class: (active?(active) ? 'active' : nil)) do
+    def link(label, path, icon: nil, badge: nil, active: nil, not_active: nil, has_sublevel: nil, link_to_options: {})
+      @content << content_tag(:li, class: (active?(active, not_active) ? 'active' : nil)) do
         link_to path, link_to_options do
           concat(fa_icon(icon)) if icon.present?
           if label.present?
