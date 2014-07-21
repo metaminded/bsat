@@ -47,7 +47,7 @@ module Bsat
     def subnav(label, path)
       @content << content_tag(:li, class: 'subnav') do
         subnav = SidebarNav.new(self, options: @options)
-        subnav.back(label, '#', link_to_options: { class: 'subnav-back' })
+        subnav.back(t('.back'), '#', link_to_options: { class: 'subnav-back' })
         yield(subnav)
         content_for(
           "bsat_#{@options[:side]}_sidebar_nav_items".to_sym,
