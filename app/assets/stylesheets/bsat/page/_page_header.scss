@@ -40,11 +40,16 @@
     @include float-right();
     .large {
       display: block;
+      margin-right: $bast-sidebar-toggle-button-width;
+
       .btn {
         margin: 0 4px;
       }
     }
-    .small { display: none; }
+    .small {
+      display: none;
+      margin-right: $bast-sidebar-toggle-button-width;
+    }
   }
 }
 

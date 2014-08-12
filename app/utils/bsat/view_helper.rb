@@ -16,7 +16,14 @@ module Bsat
 
   protected
 
-    def active?(active)
+    def active?(active, not_active=nil)
+      if not_active.present?
+        if not_active.is_a?(Regexp)
+          return false if request.path =~ not_active
+        else
+          raise "give a Regexp for not_active"
+        end
+      end
       if active.present?
         if active.is_a?(Regexp)
           request.path =~ active

@@ -22,14 +22,20 @@ body.sidebar-close {
   @include closed-sidebar;
 }
 
-body.no-sidebar {
+body.no-left-sidebar {
   #page #content-area {
-    @include single-transition(left, 0);
     left: 0;
 
     #page-header {
       padding-left: $bsat-page-header-padding;
     }
+  }
+}
+
+body.no-right-sidebar {
+  #page #content-area #page-header #page-actions .large,
+  #page #content-area #page-header #page-actions .small {
+    margin-right: 0;
   }
 }
 

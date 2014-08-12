@@ -27,8 +27,10 @@ window.bsat.utils.readyOrPageChange ->
   #
   # Detect if there is no sidebar
   #
-  unless $('#sidebar')[0]
-    $('body').addClass('no-sidebar')
+  unless $('#left-sidebar-wrapper')[0]
+    $('body').addClass('no-left-sidebar')
+  unless $('#right-sidebar-wrapper')[0]
+    $('body').addClass('no-right-sidebar')
 
   #
   # Use IScroll for scrolling the sidebar
@@ -44,19 +46,24 @@ window.bsat.utils.readyOrPageChange ->
   #
   # Handle Subnavigation
   #
-  $(document).on 'click', '#sidebar .subnav-toggle', (e) ->
+
+  open_subnav = (e) ->
     path = $(e.currentTarget).attr 'href'
     $(e.currentTarget).parents('nav#sidebar').find('ul.nav').addClass 'hidden'
     $(e.currentTarget).parents('nav#sidebar').find(path).removeClass 'hidden'
 
-
-  $(document).on 'click', '#sidebar .subnav-back', (e) ->
+  close_subnav = (e) ->
     path = $(e.currentTarget).parents('ul').first().attr 'id'
     $(e.currentTarget).parents('nav#sidebar').find('ul.nav').addClass 'hidden'
     $(e.currentTarget).parents('nav#sidebar').find("a[href=##{path}]").parents('ul.nav').removeClass 'hidden'
 
+  $(document).on 'click', '#sidebar .subnav-toggle', open_subnav
+  $(document).on 'tap', '#sidebar .subnav-toggle', open_subnav
+
+  $(document).on 'click', '#sidebar .subnav-back', close_subnav
+  $(document).on 'tap', '#sidebar .subnav-back', close_subnav
 
   path = $('nav#sidebar').find('li.active a').parents('ul').attr('id')
   if path
-    $('nav#sidebar').find('ul.nav').addClass 'hidden'
+    $('nav#sidebar').has('.subnav-menu').find('ul.nav').addClass 'hidden'
     $('nav#sidebar').find("##{path}").removeClass 'hidden'
