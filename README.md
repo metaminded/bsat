@@ -67,7 +67,7 @@ $bsat-sidebar-width: 250px;
 @import "bsat";
 ```
 
-__Please note:__ BSAT will automatically require all of it's dependencies (e.g. Bootstrap). The complete list can be found [here](https://github.com/renspr/bsat/blob/master/app/assets/stylesheets/bsat.css.scss).
+__Please note:__  You need to require `bootstrap` manually before you require `bsat`.
 
 ### Javascript
 
@@ -78,7 +78,7 @@ We have a helper that includes all BSAT javascripts. Put this in your Javascript
 //= require bsat
 ```
 
-__Please note:__ BSAT will automatically require all of it's dependencies (e.g. Bootstrap). The complete list can be found [here](https://github.com/renspr/bsat/blob/master/app/assets/javascripts/bsat.js.coffee).
+__Please note:__ You need to require `jquery` and `bootstrap` manually before you require `bsat`.
 
 
 Usage
