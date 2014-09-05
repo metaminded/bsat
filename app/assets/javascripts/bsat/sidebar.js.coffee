@@ -36,12 +36,13 @@ window.bsat.utils.readyOrPageChange ->
   # Use IScroll for scrolling the sidebar
   #
   selector = '#sidebar'
-  new IScroll(selector, {
-    scrollbars: true,
-    fadeScrollbars: true,
-    mouseWheel: true,
-    click: true
-  }) if $(selector)[0]
+  if !$('body').hasClass 'test'
+    new IScroll(selector, {
+      scrollbars: true,
+      fadeScrollbars: true,
+      mouseWheel: true,
+      click: true
+    }) if $(selector)[0]
 
   #
   # Handle Subnavigation
