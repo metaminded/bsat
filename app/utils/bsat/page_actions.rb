@@ -27,9 +27,7 @@ module Bsat
         concat(fa_icon(icon)) if icon.present?
         if label.present?
           concat(' ') if icon.present?
-          concat(
-            content_tag(:span, label)
-          )
+          concat(label)
         end
       end
     end
@@ -40,9 +38,7 @@ module Bsat
           concat(fa_icon(icon)) if icon.present?
           if label.present?
             concat(' ') if icon.present?
-            concat(
-              content_tag(:span, label)
-            )
+            concat(label)
           end
         end
       end
