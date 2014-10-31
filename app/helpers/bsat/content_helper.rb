@@ -50,5 +50,29 @@ module Bsat
         when :right then content_for(:bsat_navbar_right_items, navbar_items.render)
       end
     end
+
+    def bsat_nested_form_fields(f, &block)
+      content_tag(:div, class: 'panel panel-default') do
+        concat(
+          content_tag(:div, class: 'panel-heading') do
+            content_tag(:div, f.object.class.model_name.human, class: 'panel-title')
+          end
+        )
+        concat(
+          content_tag(:div, class: 'panel-body') do
+            yield
+          end
+        )
+        concat(
+          content_tag(:div, class: 'panel-footer') do
+            f.link_to_remove(class: 'btn btn-default btn-sm') do
+              concat(fa_icon(:minus))
+              concat(' ')
+              concat(t('action.nested_form.remove', klass: f.object.class.model_name.human))
+            end
+          end
+        )
+      end
+    end
   end
 end

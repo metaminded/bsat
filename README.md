@@ -199,3 +199,15 @@ navigation nesting.
 
 ![Screenshot 7](etc/screenshot7.png)
 
+### Nested Form Fields
+
+When using nested_forms, BSAT provides a helper to style them adequately.
+For example, your `_form.html.slim` contains this code:
+```slim
+= f.fields_for :tasks
+```
+You can now have a `_task_fields.html.slim` that adds the fields with the helper.
+```slim
+= bsat_nested_form_fields(f) do
+  = f.input :title
+```
