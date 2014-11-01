@@ -50,5 +50,9 @@ module Bsat
         when :right then content_for(:bsat_navbar_right_items, navbar_items.render)
       end
     end
+
+    def bsat_nested_form_fields(f, &block)
+      render 'bsat_nested_form_fields', f: f, block: block
+    end
   end
 end

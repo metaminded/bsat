@@ -1,0 +1,7 @@
+.panel.panel-default
+  .panel-heading
+    .panel-title = f.object.class.model_name.human
+  .panel-body
+    - block.call
+  .panel-footer
+    = f.link_to_remove fa_icon(:minus, text: t('action.nested_form.remove', klass: f.object.class.model_name.human)), class: 'btn btn-default btn-sm'
