@@ -52,7 +52,7 @@ module Bsat
     end
 
     def bsat_nested_form_fields(f, &block)
-      render 'nested_form_fields', f: f, block: block
+      render 'bsat_nested_form_fields', f: f, block: block
     end
   end
 end
