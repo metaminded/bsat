@@ -1,21 +1,22 @@
-nav#main-navbar.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
-  .container-fluid
-    .navbar-header
+- if content_for?(:bsat_navbar_left_items) || content_for?(:bsat_navbar_right_items) || content_for?(:bsat_brand)
+  nav#main-navbar.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
+    .container-fluid
+      .navbar-header
+        - if content_for?(:bsat_navbar_left_items) || content_for?(:bsat_navbar_right_items)
+          button.navbar-toggle(type="button" data-toggle="collapse" data-target="#bs-navbar-collapse")
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+
+        - if content_for?(:bsat_brand)
+          = link_to yield(:bsat_brand), (yield(:bsat_brand_path) || root_path), class: 'navbar-brand'
+
       - if content_for?(:bsat_navbar_left_items) || content_for?(:bsat_navbar_right_items)
-        button.navbar-toggle(type="button" data-toggle="collapse" data-target="#bs-navbar-collapse")
-          span.icon-bar
-          span.icon-bar
-          span.icon-bar
+        #bs-navbar-collapse.collapse.navbar-collapse
+          - if content_for?(:bsat_navbar_left_items)
+            ul.nav.navbar-nav.navbar-left
+              = yield(:bsat_navbar_left_items)
 
-      - if content_for?(:bsat_brand)
-        = link_to yield(:bsat_brand), (yield(:bsat_brand_path) || root_path), class: 'navbar-brand'
-
-    - if content_for?(:bsat_navbar_left_items) || content_for?(:bsat_navbar_right_items)
-      #bs-navbar-collapse.collapse.navbar-collapse
-        - if content_for?(:bsat_navbar_left_items)
-          ul.nav.navbar-nav.navbar-left
-            = yield(:bsat_navbar_left_items)
-
-        - if content_for?(:bsat_navbar_right_items)
-          ul.nav.navbar-nav.navbar-right
-            = yield(:bsat_navbar_right_items)
+          - if content_for?(:bsat_navbar_right_items)
+            ul.nav.navbar-nav.navbar-right
+              = yield(:bsat_navbar_right_items)
