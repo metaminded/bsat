@@ -3,7 +3,11 @@ module Bsat
     include ActionView::Helpers::CaptureHelper
     def render(plain = false)
       return @content if plain
-      content_tag(:ul, class: 'nav nav-stacked nav-pills') { @content }
+      if @options[:with_lists]
+        content_tag(:div) { @content }
+      else
+        content_tag(:ul, class: 'nav nav-stacked nav-pills') { @content }
+      end
     end
 
     def back(label, path, link_to_options: {})
@@ -49,6 +53,15 @@ module Bsat
           concat(content_tag(:span, badge, class: 'badge')) if badge.present?
         end
       end
+    end
+
+    def list(with_lists: false)
+      raise '' unless @options[:with_lists]
+      options = @options.clone
+      options[:with_lists] = with_lists
+      list = SidebarNav.new(self, options: options)
+      yield(list)
+      @content << content_tag(:ul, class: 'nav nav-stacked nav-pills') { list.render(true) }
     end
 
     def subnav(label, path)

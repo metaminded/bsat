@@ -19,8 +19,8 @@ module Bsat
       content_for(:bsat_brand_path, path) if path.present?
     end
 
-    def bsat_sidebar_nav(side: :left)
-      sidebar_nav = SidebarNav.new(self, options: { side: side })
+    def bsat_sidebar_nav(side: :left, with_lists: false)
+      sidebar_nav = SidebarNav.new(self, options: { side: side, with_lists: with_lists })
       yield(sidebar_nav) if block_given?
       content_for("bsat_#{side.to_s}_sidebar_nav_items".to_sym, sidebar_nav.render)
     end
