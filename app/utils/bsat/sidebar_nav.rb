@@ -65,5 +65,27 @@ module Bsat
         end
       end
     end
+
+    def dropdown(label)
+      @content << content_tag(:li, class: 'dropdown') do
+        subnav = SidebarNav.new(self, options: @options)
+        result = yield(subnav)
+        concat(
+          link_to("#", class: 'dropdown-toggle') do
+            concat(
+              content_tag(:span, label)
+            )
+            concat(
+              content_tag(:span, class: 'sublevel-indicator') do
+                fa_icon('chevron-right')
+              end
+            )
+          end
+        )
+        concat(
+          content_tag(:ul, result, class: 'hidden nav nav-pills nav-stacked')
+        )
+      end
+    end
   end
 end
