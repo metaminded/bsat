@@ -1,6 +1,6 @@
 module Bsat
   class SidebarNav < ViewHelper
-
+    include ActionView::Helpers::CaptureHelper
     def render(plain = false)
       return @content if plain
       content_tag(:ul, class: 'nav nav-stacked nav-pills') { @content }
@@ -18,6 +18,13 @@ module Bsat
           end
         end
       end
+    end
+
+    def content(klass: '', &block)
+      if block_given?
+        result = capture(&block)
+      end
+      @content << content_tag(:div, result, class: klass)
     end
 
     def divider
