@@ -188,6 +188,8 @@ the `bsat_sidebar_nav` helper.
 ```slim
 - bsat_sidebar_nav do |nav|
   - nav.back 'Back', '#'
+  - nav.content do
+    b = 'My content here'
   - nav.link 'Action 1', '#', icon: 'bolt',    active: /\A\//
   - nav.link 'Action 2', '#', icon: 'desktop', active: /bar/, has_sublevel: true
   - nav.divider
