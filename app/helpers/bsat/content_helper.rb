@@ -54,5 +54,9 @@ module Bsat
     def bsat_nested_form_fields(f, &block)
       render 'bsat_nested_form_fields', f: f, block: block
     end
+
+    def bsat_content_block(&block)
+      capture(&block)
+    end
   end
 end
