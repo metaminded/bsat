@@ -5,11 +5,11 @@
 
   #left-sidebar-wrapper {
     #left-sidebar-toggle-button {
-      left: 0 !important;
+      left: 0;
     }
 
     #sidebar {
-      left: -$bsat-sidebar-width !important;
+      left: -$bsat-sidebar-width;
     }
   }
 }
