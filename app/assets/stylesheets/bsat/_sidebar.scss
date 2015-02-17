@@ -111,7 +111,8 @@
   width: $bsat-sidebar-width;
   background: $bsat-sidebar-background-color;
   box-sizing: border-box;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 
   @import 'sidebar/nav';
 }
