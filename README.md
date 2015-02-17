@@ -30,11 +30,6 @@ in-house use, reducing dependcies is not our primary goal.
 * [font-awesome-rails](http://rubygems.org/gems/font-awesome-rails), ~> 4.0
 * [slim](http://rubygems.org/gems/slim),                             ~> 2.0
 
-BSAT will also include the following Javascript librarys.
-
-* [iscroll](http://iscrolljs.com/), ~> 5.0
-
-
 Installation
 ------------
 

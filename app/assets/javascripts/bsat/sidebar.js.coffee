@@ -33,18 +33,6 @@ window.bsat.utils.readyOrPageChange ->
     $('body').addClass('no-right-sidebar')
 
   #
-  # Use IScroll for scrolling the sidebar
-  #
-  selector = '#sidebar'
-  if !$('body').hasClass 'test'
-    new IScroll(selector, {
-      scrollbars: true,
-      fadeScrollbars: true,
-      mouseWheel: true,
-      click: true
-    }) if $(selector)[0]
-
-  #
   # Handle Subnavigation
   #
 
