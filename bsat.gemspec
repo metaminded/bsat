@@ -7,7 +7,7 @@ require "bsat/version"
 Gem::Specification.new do |s|
   s.name        = "bsat"
   s.version     = Bsat::VERSION
-  s.authors     = ["René Sprotte"]
+  s.authors     = ["Rene Sprotte"]
   s.email       = ["renspr@gmail.com"]
   s.homepage    = "https://github.com/renspr/bsat"
   s.summary     = "bsat is a simple admin template build with Bootstrap 3 (SASS version) packaged as a Rails engine."
