@@ -36,8 +36,8 @@ module Bsat
       @icon  = icon
     end
 
-    def link(label, path, icon: nil, link_to_options: {})
-      @content << content_tag(:li) do
+    def link(label, path, icon: nil, active: nil, not_active: nil, link_to_options: {})
+      @content << content_tag(:li, class: (active?(active, not_active) ? 'active' : nil)) do
         link_to(path, link_to_options) do
           concat(fa_icon(icon)) if icon.present?
           if label.present?
